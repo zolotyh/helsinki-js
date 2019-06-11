@@ -11,8 +11,7 @@
 // ---------------------------------------------
 
 
-// Include theme-specific fonts
-@import url(../../lib/font/source-sans-pro/source-sans-pro.css);
+@import url(../../../fonts/fonts.css);
 
 
 // Override theme settings (see ../template/settings.scss)
@@ -22,8 +21,8 @@ $mainColor: #222;
 $headingColor: #222;
 
 $mainFontSize: 42px;
-$mainFont: 'Source Sans Pro', Helvetica, sans-serif;
-$headingFont: 'Source Sans Pro', Helvetica, sans-serif;
+$mainFont: 'Roboto', Helvetica, sans-serif;
+$headingFont: 'Roboto', Helvetica, sans-serif;
 $headingTextShadow: none;
 $headingLetterSpacing: normal;
 $headingTextTransform: uppercase;

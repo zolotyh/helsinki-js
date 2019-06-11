@@ -1,39 +1,46 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>reveal.js</title>
-		<link rel="stylesheet" href="css/reset.css">
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/white.css">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>reveal.js</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/reveal.css" />
+    <link rel="stylesheet" href="css/theme/white.css" />
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/gruvbox-dark.css">
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/a11y-light.css" />
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-                <section>
-                    <img src="img/dart_logo.svg" alt="">
-                    <p>
-                        Why you should try Dart in 2019
-                    </p>
-                </section>
-                <section>
-                    Dart is an attempt to changing the world
-                </section>
-                <section>
-                    <pre><code data-trim>
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? 'css/print/pdf.css'
+        : 'css/print/paper.css';
+      document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>
+            Why you should try Dart in 2019
+          </h1>
+        </section>
+        <section>
+          <img src="img/dart_logo.svg" alt="" />
+          <p>
+            Dart is an attempt to changing the world
+          </p>
+        </section>
+        <section data-transition="slide none">
+          <pre><code data-trim>
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
   &lt;body&gt;
@@ -44,35 +51,84 @@
   &lt;/body&gt;
 &lt;/html&gt;
                     </code></pre>
-                </section>
-                <section>
-                    <img src="img/js.svg" height="300px" alt="">
-                </section>
-                <section>
-                    <p>
-                        What's wrong with javascript?
-                    </p>
-                </section>
-                <section>
-                </section>
-			</div>
-		</div>
+        </section>
+        <section data-transition="none slide">
+          <pre><code data-trim data-noescape>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;body&gt;
+    &lt;script type="<mark>application/dart</mark>" src="<mark>app.dart</mark>"&gt;&lt;/script&gt;
 
-		<script src="js/reveal.js"></script>
+    &lt;!-- Support for non-Dart browsers. --&gt;
+    &lt;script src="packages/browser/dart.js"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+                    </code></pre>
+        </section>
+        <section>
+          <img src="img/js.svg" height="300px" alt="" />
+          <p>
+            What's wrong with javascript?
+          </p>
+        </section>
+        <section>
+            <p class="fragment">Does it work?</p>
+            <pre><code data-trim>
+<script>
+    L: function F() {console.log('f');}
+    F();
+</script>
+            </code></pre>
+        </section>
+        <section>
+            <h2>wat</h2>
+            <pre><code class="javascript" data-noescape data-trim>
+          [] + [] // ""
+            </code></pre>
+            <pre class="fragment"><code class="javascript" data-noescape data-trim>
+          [] + {} // '[object Object]'
+            </code></pre>
+            <pre class="fragment"><code class="javascript" data-noescape data-trim>
+          {} + [] // 0
+            </code></pre>
+            <pre class="fragment"><code class="javascript" data-noescape data-trim>
+          {} + {} // NaN
+            </code></pre>
+        </section>
+        <section>
+          <h2 class="fragment">Don’t break the web</h2>
+          <p>We can't fixed javascript problems</p>
+        </section>
+        <section>
+            <p>Does it work?</p>
+            <pre><code data-trim data-noescape>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-                hash: true,
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true }
-				]
-			});
-		</script>
-	</body>
+&lt;script&gt;
+    <span class="fragment" data-fragment-index=1>"use strict";</span>
+    L: function F() {console.log('f');}
+    <span class="fragment" data-fragment-index=1>//throws Error</span>
+    F();
+&lt;/script&gt;
+            </code></pre>
+        </section>
+      </div>
+    </div>
+
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        hash: true,
+        dependencies: [
+          {src: 'plugin/markdown/marked.js'},
+          {src: 'plugin/markdown/markdown.js'},
+          {src: 'plugin/notes/notes.js', async: true},
+          {src: 'plugin/highlight/highlight.js', async: true},
+        ],
+      });
+    </script>
+  </body>
 </html>

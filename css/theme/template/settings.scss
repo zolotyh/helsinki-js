@@ -18,7 +18,7 @@ $headingFont: 'League Gothic', Impact, sans-serif;
 $headingColor: #eee;
 $headingLineHeight: 1.2;
 $headingLetterSpacing: normal;
-$headingTextTransform: uppercase;
+$headingTextTransform: none;
 $headingTextShadow: none;
 $headingFontWeight: normal;
 $heading1TextShadow: $headingTextShadow;
@@ -29,7 +29,7 @@ $heading3Size: 1.55em;
 $heading4Size: 1.00em;
 
 // $codeFont: monospace;
-$codeFont: 'Iosevka SS08 Web', monospace;
+$codeFont: 'Roboto Mono', monospace;
 
 // Links and actions
 $linkColor: #13DAEC;
