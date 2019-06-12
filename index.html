@@ -13,7 +13,6 @@
 
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="lib/css/a11y-light.css" />
-
     <!-- Printing and PDF exports -->
     <script>
       var link = document.createElement('link');
@@ -24,6 +23,11 @@
         : 'css/print/paper.css';
       document.getElementsByTagName('head')[0].appendChild(link);
     </script>
+    <style>
+        .hidden {
+            visibility: hidden;
+        }
+    </style>
   </head>
   <body>
     <div class="reveal">
@@ -33,8 +37,41 @@
             Why you should try Dart in 2019
           </h1>
         </section>
+        <section data-transition="slide none">
+            Typescript is the same as Dart but Dart is dead
+        </section>
+        <section data-transition="none slide">
+            <strike>
+                Typescript is the same as Dart but Dart is dead
+            </strike>
+        </section>
+        <section>
+            <img src="img/zolotykh.png" alt="">
+            <p>
+                Aleksei Zolotykh
+            </p>
+            <p class="fragment">
+                Just Alex
+            </p>
+        </section>
+        <section>
+            <img src="img/saintp.jpg" alt="">
+        </section>
+        <section>
+            3+ years with Dart
+        </section>
+        <section>
+            <img height="200" src="img/infobip.svg" alt="">
+            <p>We send a lot of messages</p>
+        </section>
+        <section>
+            <img src="img/holy.svg" alt="">
+            <p>The most advanced JS conf in Russia</p>
+        </section>
         <section>
           <img src="img/dart_logo.svg" alt="" />
+        </section>
+        <section>
           <p>
             Dart is an attempt to changing the world
           </p>
@@ -66,19 +103,69 @@
                     </code></pre>
         </section>
         <section>
-          <img src="img/js.svg" height="300px" alt="" />
-          <p>
-            What's wrong with javascript?
-          </p>
+            <h3>
+                Why?
+            </h3>
+            <ul>
+                <li class="fragment">Legacy API</li>
+                <li class="fragment">Pure SDK</li>
+                <li class="fragment">Design issues</li>
+                <li class="fragment">Static types
+                    <sup>*</sup>
+                </li>
+            </ul>
+            <p>
+                <small class="fragment">Dart supports static types from version 2.0</small>
+            </p>
         </section>
         <section>
-            <p class="fragment">Does it work?</p>
+            <h2>Legacy API</h2>
+        </section>
+        <section data-transition="slide none">
+            <p>Does it work?</p>
             <pre><code data-trim>
 <script>
     L: function F() {console.log('f');}
     F();
 </script>
             </code></pre>
+        </section>
+        <section data-transition="none slide">
+            <p>Does it work?</p>
+            <pre><code data-trim>
+<script>
+    'use strict';
+    L: function F() {console.log('f');}
+    F();
+</script>
+            </code></pre>
+        </section>
+        <section>
+            <p>
+                What does this do?
+            </p>
+            <pre><code data-trim>
+function f(foo, values) {
+  with (foo) {
+    console.log(values);
+  }
+}
+            </code></pre>
+            <p class="fragment">
+                What if foo has "values"?
+            </p>
+        </section>
+        <section>
+            The <b>with statement</b> extends the scope chain for a statement.
+        </section>
+        <section>
+            What about XMLHttpRequest?
+        </section>
+        <section>
+            Dart analyzer helps you (demo)
+        </section>
+        <section>
+            <img src="img/deprecated.png" alt="">
         </section>
         <section>
             <h2>wat</h2>
@@ -98,18 +185,6 @@
         <section>
           <h2 class="fragment">Don’t break the web</h2>
           <p>We can't fixed javascript problems</p>
-        </section>
-        <section>
-            <p>Does it work?</p>
-            <pre><code data-trim data-noescape>
-
-&lt;script&gt;
-    <span class="fragment" data-fragment-index=1>"use strict";</span>
-    L: function F() {console.log('f');}
-    <span class="fragment" data-fragment-index=1>//throws Error</span>
-    F();
-&lt;/script&gt;
-            </code></pre>
         </section>
       </div>
     </div>
