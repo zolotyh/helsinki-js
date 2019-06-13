@@ -37,14 +37,6 @@
             Why you should try Dart in 2019
           </h1>
         </section>
-        <section data-transition="slide none">
-            Typescript is the same as Dart but Dart is dead
-        </section>
-        <section data-transition="none slide">
-            <strike>
-                Typescript is the same as Dart but Dart is dead
-            </strike>
-        </section>
         <section>
             <img src="img/zolotykh.png" alt="">
             <p>
@@ -71,9 +63,61 @@
         <section>
           <img src="img/dart_logo.svg" alt="" />
         </section>
+
+
+        <section>
+          <p>Dart is...</p>
+          <ul>
+            <li class="fragment">Dart -&gt; Javascript or LLVM or Binary</li>
+            <li class="fragment">DartVM (V8)</li>
+          </ul>
+        </section>
+
+
+        <section style="font-size: 0.6em">
+          <h3>All platforms</h3>
+          <p>
+          Web
+          </p>
+          <img src="img/browser.svg" alt="">
+          <div class="fragment">
+            <p>Server</p>
+            <img src="img/server.svg" alt="">
+          </div>
+          <div class="fragment fade-up">
+            <p>Mobile</p>
+            <img src="img/mobile.svg" alt="">
+          </div>
+        </section>
+
+        <section data-transition="slide none">
+            Typescript is the same as Dart but Dart is dead
+        </section>
+        <section data-transition="none slide">
+            <strike>
+                Typescript is the same as Dart but Dart is dead
+            </strike>
+        </section>
+        <section>
+            <img src="img/typescriptsite.png" alt="">
+        </section>
+        <section>
+            <img src="img/dartsite.png" alt="">
+        </section>
+        <section>
+            <pre><code>
+            JS + static types  === Typescript
+            </code></pre>
+            <pre class="fragment"><code>
+            JS === Typescript
+            </code></pre>
+        </section>
+        <section>
+            Dart is separate language
+        </section>
         <section>
           <p>
-            Dart is an attempt to changing the world
+              Attempt to change the world.
           </p>
         </section>
         <section data-transition="slide none">
@@ -104,11 +148,12 @@
         </section>
         <section>
             <h3>
-                Why?
+                Why google wanted to kill JS?
             </h3>
             <ul>
+                <li class="fragment">Syntax</li>
                 <li class="fragment">Legacy API</li>
-                <li class="fragment">Pure SDK</li>
+                <li class="fragment">SDK</li>
                 <li class="fragment">Design issues</li>
                 <li class="fragment">Static types
                     <sup>*</sup>
@@ -117,6 +162,245 @@
             <p>
                 <small class="fragment">Dart supports static types from version 2.0</small>
             </p>
+        </section>
+        <section>
+            <h2>
+                Syntax
+            </h2>
+        </section>
+        <section>
+            <p>Javascript</p>
+            <pre><code data-trim="">
+                var f1 = () =&gt; {...}
+                f1();
+                console.log('test');
+                f2();
+                var f2 = () =&gt; {...}
+            </code></pre>
+        </section>
+        <section>
+            <p>Javascript</p>
+            <pre><code data-trim="">
+                var f1, f2;
+                f1 = () =&gt; {...}
+                f1();
+                console.log('test');
+                f2();
+                f2 = () =&gt; {...}
+            </code></pre>
+        </section>
+        <section>
+            Dart
+            <pre><code data-trim>
+void f1(){}
+void main() {
+    f1();
+    print('hello world');
+    f2();
+}
+void f2(){}
+            </code></pre>
+        </section>
+        <section data-transition="slide none">
+            <pre><code data-trim style="font-size: 0.8em">
+class Greeter {
+  greeting: string;
+  constructor(message: string) {
+    this.greeting = message;
+  }
+  greet() {
+    return "Hello, " + this.greeting;
+  }
+}
+
+ let greeter = new Greeter("world")
+            </code></pre>
+        </section>
+        <section data-transition="none">
+            <pre><code data-noescape data-trim style="font-size: 0.8em">
+class Greeter {
+  greeting: string;
+  constructor(message: string) {
+    <mark>this</mark>.greeting = message;
+  }
+  greet() {
+    return "Hello, " + <mark>this</mark>.greeting;
+  }
+}
+
+ let greeter = new Greeter("world")
+            </code></pre>
+        </section>
+        <section data-transition="none">
+            <pre><code data-noescape data-trim style="font-size: 0.8em">
+class Greeter {
+  greeting: <mark>string</mark>;
+  constructor(message: <mark>string</mark>) {
+    this.greeting = message;
+  }
+  greet() {
+    return "Hello, " + this.greeting;
+  }
+}
+
+ let greeter = new Greeter("world")
+            </code></pre>
+        </section>
+        <section data-transition="none">
+            <pre><code data-noescape data-trim style="font-size: 0.8em">
+class Greeter {
+  <mark>constructor(private greeting: string) {}</mark>
+  greet() {
+    return "Hello, " + this.greeting;
+  }
+}
+
+ let greeter = new Greeter("world")
+            </code></pre>
+        </section>
+        <section data-transition="none">
+            <pre><code data-noescape data-trim style="font-size: 0.8em">
+class Greeter {
+  constructor(private greeting: string) {}
+  greet() {
+    return <mark>"Hello, " + this.greeting;</mark>
+  }
+}
+
+ let greeter = new Greeter("world")
+            </code></pre>
+        </section>
+        <section data-transition="none">
+            <pre><code data-noescape data-trim style="font-size: 0.8em">
+class Greeter {
+  constructor(private greeting: string) {}
+  greet() {
+    return <mark>`Hello, ${this.greeting}`;</mark>
+  }
+}
+
+ let greeter = new Greeter("world")
+            </code></pre>
+        </section>
+        <section data-transition="none">
+            <pre><code data-noescape data-trim style="font-size: 0.8em">
+<mark>export</mark> class Greeter {
+  constructor(private greeting: string) {}
+  greet() {
+    return `Hello, ${this.greeting}`;
+  }
+}
+// another file
+let greeter = new Greeter("world")
+            </code></pre>
+        </section>
+        <section>
+            <p>Dart</p>
+            <pre><code data-trim style="font-size: 0.8em">
+class Greeter {
+    final String _greeting;
+
+    Greeter(this._greeting);
+
+    String get greet =&gt; "Hello, $_greeting";
+}
+// another file
+var greeter = Greeter("world");
+            </code></pre>
+        </section>
+        <section>
+            We need more sugar
+        </section>
+        <section>
+            <pre><code data-trim>
+            class TestClass {
+                void method1(){...}
+                void method2(){...}
+                void method3(){...}
+            }
+            </code></pre>
+        </section>
+        <section>
+            <pre><code class="dart" data-trim>
+TestClass()
+   ..method1()
+   ..method2()
+   ..method3()
+
+            </code></pre>
+        </section>
+        <section>
+            <pre><code class="dart" data-trim>
+['0']
+   ..add(1)
+   ..add(2)
+   ..add(3)
+
+            </code></pre>
+        </section>
+        <section>
+            <p>Null-aware Operator "??"</p>
+            <pre><code data-trim data-noescape>
+exp ?? otherExp
+<span class="fragment">((x) =&gt; x == null ? otherExp : x)(exp)</span>
+            </code></pre>
+        </section>
+        <section>
+            <p>Null-aware Operator "??="</p>
+            <pre><code data-trim data-noescape>
+obj ??= value
+<span class="fragment">((x) =&gt; x == null ? obj = value : x)(obj)</span>
+            </code></pre>
+        </section>
+        <section>
+            <p>Null-aware Operator "?."</p>
+            <pre><code data-trim data-noescape>
+obj?.method()
+<span class="fragment">((x) =&gt; x == null ? null : x.method())(obj)</span>
+            </code></pre>
+            <pre class="fragment"><code data-noescape data-trim>
+// undefined is not a function
+obj?.<mark>child</mark>?.child?.getter
+            </code></pre>
+        </section>
+
+        <section>
+            <p>Spread is also here</p>
+            <pre><code data-trim>
+var list = [1, 2, 3];
+var list2 = [0, ...list];
+assert(list2.length == 4);
+            </code></pre>
+        </section>
+        <section>
+            <p>If list is null</p>
+            <pre><code>
+var list;
+var list2 = [0, ...?list];
+assert(list2.length == 1);
+            </code></pre>
+        </section>
+        <section>
+            <p>Collection if</p>
+            <pre><code data-trim>
+var nav = [
+  'Home',
+  'Furniture',
+  'Plants',
+  if (promoActive) 'Outlet'
+];
+            </code></pre>
+        </section>
+        <section>
+            <p>collection for</p>
+            <pre><code>
+var listOfInts = [1, 2, 3];
+var listOfStrings = [
+  '#0',
+  for (var i in listOfInts) '#$i'
+];
+assert(listOfStrings[1] == '#1');
+            </code></pre>
         </section>
         <section>
             <h2>Legacy API</h2>
@@ -168,23 +452,223 @@ function f(foo, values) {
             <img src="img/deprecated.png" alt="">
         </section>
         <section>
-            <h2>wat</h2>
-            <pre><code class="javascript" data-noescape data-trim>
-          [] + [] // ""
-            </code></pre>
-            <pre class="fragment"><code class="javascript" data-noescape data-trim>
-          [] + {} // '[object Object]'
-            </code></pre>
-            <pre class="fragment"><code class="javascript" data-noescape data-trim>
-          {} + [] // 0
-            </code></pre>
-            <pre class="fragment"><code class="javascript" data-noescape data-trim>
-          {} + {} // NaN
+            <h2>SDK</h2>
+        </section>
+        <section>
+          <pre><code data-trim data-noescape>
+          const result = document.getElementsByClassName('test');
+          <span class="fragment">// HTMLCollection</span>
+          </code></pre>
+        </section>
+        <section>
+          <pre><code data-trim data-noescape>
+          const result = document.querySelectorAll('.test');
+          <span class="fragment">// NodeList</span>
+          </code></pre>
+          <p class="fragment">Why it is not an array?</p>
+          <pre class="fragment"><code data-trim="">
+const nodelist = document.querySelectorAll(‘.divy’)
+const divyArray = Array.from(nodelist)
+          </code></pre>
+        </section>
+        <section>
+            Dart (demo time)
+        </section>
+        <section>
+          <p>Array is also a strange thing</p>
+          <pre class="fragment"><code data-trim>
+          Array.prototype[1] = "ha";
+          var arr = [0, /* Hole */, 1]
+          arr[1]  // =&gt; "ha"
+          </code></pre>
+          <p class="fragment">But we have map, filter...</p>
+        </section>
+        <section data-transition="slide none">
+            <p>Moment.js</p>
+            <img src="img/moment.png" alt="">
+        </section>
+        <section data-transition="none slide" >
+            <p>Moment.js</p>
+            <img src="img/moment2.png" alt="">
+        </section>
+        <section data-transition="none">
+          <pre><code data-trim>
+void main(){
+  final date = DateTime.now();
+  final berlinWallFell = new DateTime(1989, 11, 9);
+  final diff = date.difference(berlinWallFell);
+  print('${diff.inDays} days');
+}
+          </code></pre>
+        </section>
+        <section data-transition="none">
+          <pre><code data-trim data-noescape>
+void main(){
+  final date = DateTime.now();
+  final berlinWallFell = new DateTime(1989, 11, 9);
+  final <mark>Duration</mark> diff = date.difference(berlinWallFell);
+  print('${diff.inDays} days');
+}
+          </code></pre>
+        </section>
+        <section>
+            Async API
+        </section>
+        <section data-transition="slide none">
+            <p>Promise =&gt; Future</p>
+          <pre><code style="font-size: 1.6rem" data-trim data-noescape>
+import 'dart:async';
+
+Future&lt;void&gt; main() async {
+  print(await asyncOperation());
+}
+<span class="fragment">
+Future&lt;String&gt; asyncOperation() =&gt;
+  Future.delayed(
+    Duration(seconds: 1),
+    () =&gt; 'hello',
+  );
+</span>
+          </code></pre>
+        </section>
+        <section>
+            <pre><code data-trim>
+import 'dart:html';
+
+void main() {
+  var button = querySelector('button');
+
+  // `onClick` is a Stream&lt;T&gt; instance that receives user click data events
+  button.onClick.listen((_) =&gt; print('Button clicked!'));
+}
             </code></pre>
         </section>
         <section>
-          <h2 class="fragment">Don’t break the web</h2>
-          <p>We can't fixed javascript problems</p>
+            Stream methods
+            <pre><code data-trim>
+Stream&lt;R&gt; cast&lt;R&gt;();
+Stream&lt;S&gt; expand&lt;S&gt;(Iterable&lt;S&gt; Function(T element) convert);
+Stream&lt;S&gt; map&lt;S&gt;(S Function(T event) convert);
+Stream&lt;R&gt; retype&lt;R&gt;();
+Stream&lt;T&gt; skip(int count);
+Stream&lt;T&gt; skipWhile(bool Function(T element) test);
+Stream&lt;T&gt; take(int count);
+Stream&lt;T&gt; takeWhile(bool Function(T element) test);
+Stream&lt;T&gt; where(bool Function(T event) test);
+            </code></pre>
+        </section>
+        <section>
+            Stream methods
+            <pre><code data-trim>
+Stream&lt;S&gt; transform&lt;S&gt;(StreamTransformer&lt;T, S&gt; streamTransformer);
+Stream&lt;T&gt; handleError(Function onError, {bool test(error)});
+            </code></pre>
+        </section>
+
+        <section>
+            <pre ><code style="font-size: .9em" data-trim>
+@Component(
+  selector: 'hero-search',
+)
+class HeroSearchComponent {
+  ...
+  Stream&lt;List&lt;Hero&gt;&gt; heroes;
+  StreamController&lt;String&gt; _searchTerms = StreamController&lt;String&gt;.broadcast();
+  ...
+}
+            </code></pre>
+        </section>
+        <section>
+            Looks like Dart has it's own RxJS
+        </section>
+        <section>
+          <ul style="font-size: .8em; columns: 2; -webkit-columns: 2; -moz-columns: 2; list-style: none">
+            <li>dart:async</li>
+            <li>dart:collection</li>
+            <li>dart:convert</li>
+            <li>dart:core</li>
+            <li>dart:developer</li>
+            <li>dart:html</li>
+            <li>dart:indexed_db</li>
+            <li>dart:js</li>
+            <li>dart:js_util</li>
+            <li>dart:math</li>
+            <li>dart:svg</li>
+            <li>dart:typed_data</li>
+            <li>dart:web_audio</li>
+            <li>dart:web_gl</li>
+            <li>dart:web_sql</li>
+            <li>dart:cli</li>
+            <li>dart:io</li>
+            <li>dart:isolate</li>
+            <li>dart:mirrors</li>
+          </ul>
+        </section>
+        <section>
+            &mdash; Where is a problem?
+            <p class="fragment">&mdash; SDK is JS in your browser (demo)</p>
+        </section>
+        <section>
+            <h2>Design problems</h2>
+        </section>
+        <section>
+            <p>Typescript</p>
+            <pre><code data-trim data-noescape>
+<span class="fragment">class Animal2 { public name: string; }</span>
+
+<span class="fragment">function doSomethigWithAnimal(_animal: Animal2){ ...  }</span>
+
+<span class="fragment">const a = { name: 'test' }</span>
+
+<span class="fragment">delete a.name;</span>
+
+<span class="fragment">doSomethigWithAnimal(a);</span>
+            </code></pre>
+        </section>
+        <section>
+            <h2>Static types</h2>
+        </section>
+        <section>
+            demo time
+        </section>
+        <section>
+            What is Flutter?
+        </section>
+        <section>
+            <h2>
+                Benefits
+            </h2>
+        </section>
+        <section>
+            <ul>
+                <li>Syntax</li>
+                <li>API</li>
+                <li>Migration to new version</li>
+                <li>Great design</li>
+                <li>A lot of features from the box</li>
+            </ul>
+        </section>
+        <section>
+            <h2>
+                Problems
+            </h2>
+        </section>
+        <section>
+            <ul>
+                <li>We need more Dart developers</li>
+                <li>We need more tools</li>
+                <li>We need more libs</li>
+            </ul>
+        </section>
+        <section>
+            <ul>
+                <li>
+                    Works for prototyping for mobile devices
+                </li>
+                <li class="fragment">
+                    Works for lagre and medium SPA applications
+                </li>
+            </ul>
         </section>
       </div>
     </div>
