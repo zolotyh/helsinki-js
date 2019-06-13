@@ -62,26 +62,33 @@
             <p>We send a lot of messages</p>
         </section>
         <section>
-            <img src="img/holy.svg" alt="">
-            <p>The most advanced JS conf in Russia</p>
+            <img src="img/holy2.jpg" alt="">
         </section>
         <section>
           <img src="img/dart_logo.svg" alt="" />
+          <aside class="notes">
+              Let's be closer to the topic
+          </aside>
         </section>
 
         <section>
             <p>
-            Dart is specifiacation
+            Dart specification
             <br>
             <a href="http://bit.do/dartspec-">http://bit.do/dartspec-</a>
             </p>
             <img src="img/dartspec.png" alt="">
+          <aside class="notes">
+              Ecma International has formed technical committee TC52 to work on standardizing Dart
+              Ecma International approved the Dart language specification first edition in July 2014
+          </aside>
         </section>
         <section>
           <p>Dart is...</p>
           <ul>
-            <li class="fragment">Dart -&gt; Javascript or LLVM or Binary</li>
-            <li class="fragment">DartVM (V8)</li>
+              <li class="fragment">Specification</li>
+              <li class="fragment">DartVM (V8)</li>
+              <li class="fragment">Dart -&gt; Javascript or LLVM or Binary</li>
           </ul>
         </section>
 
@@ -100,10 +107,16 @@
             <p>Mobile</p>
             <img src="img/mobile.svg" alt="">
           </div>
+          <aside class="notes">
+              Dart supports  all plaforms
+              You can write for mobile, for desktop, for web and for server
+          </aside>
         </section>
-
         <section data-transition="slide none">
             Typescript is the same as Dart but Dart is dead
+            <aside class="notes">
+                The most annoying judgment about Dart
+            </aside>
         </section>
         <section data-transition="none slide">
             <strike>
@@ -126,6 +139,12 @@
         </section>
         <section>
             Dart is separate language
+        </section>
+        <section>
+            <h2>1 min talk</h2>
+<p>
+    It is necessary to study Dart as a minimum because there are many solutions in it that are made differently than in JS. This is a very good way to become a really cool engineer.
+</p>
         </section>
         <section>
           <p>
@@ -257,6 +276,9 @@ class Greeter {
 
  let greeter = new Greeter("world")
             </code></pre>
+            <aside class="notes">
+                Personally, I don’t like how constant constants are initialized
+            </aside>
         </section>
         <section data-transition="none">
             <pre><code data-noescape data-trim style="font-size: 0.8em">
@@ -269,6 +291,9 @@ class Greeter {
 
  let greeter = new Greeter("world")
             </code></pre>
+            <aside class="notes">
+                Of course, we can do this, but if there is a lot of properties, it will be very difficult to understand what is happening in the constructor.
+            </aside>
         </section>
         <section data-transition="none">
             <pre><code data-noescape data-trim style="font-size: 0.8em">
@@ -293,6 +318,9 @@ class Greeter {
 
  let greeter = new Greeter("world")
             </code></pre>
+            <aside class="notes">
+we will have to replace all quotes if we want to use template string
+            </aside>
         </section>
         <section data-transition="none">
             <pre><code data-noescape data-trim style="font-size: 0.8em">
@@ -305,8 +333,11 @@ class Greeter {
 // another file
 let greeter = new Greeter("world")
             </code></pre>
+            <aside class="notes">
+                And we have to add export
+            </aside>
         </section>
-        <section>
+        <section data-transition="slide none">
             <p>Dart</p>
             <pre><code data-trim style="font-size: 0.8em">
 class Greeter {
@@ -315,6 +346,48 @@ class Greeter {
     Greeter(this._greeting);
 
     String get greet =&gt; "Hello, $_greeting";
+}
+// another file
+var greeter = Greeter("world");
+            </code></pre>
+        </section>
+        <section data-transition="none">
+            <p>Dart</p>
+            <pre><code data-noescape data-trim style="font-size: 0.8em">
+class Greeter {
+    final String <mark>_</mark>greeting;
+
+    Greeter(this.<mark>_</mark>greeting);
+
+    String get greet =&gt; "Hello, $<mark>_</mark>greeting";
+}
+// another file
+var greeter = Greeter("world");
+            </code></pre>
+        </section>
+        <section data-transition="none">
+            <p>Dart</p>
+            <pre><code data-noescape data-trim style="font-size: 0.8em">
+class <mark>_</mark>Greeter {
+    final String <mark>_</mark>greeting;
+
+    Greeter(this.<mark>_</mark>greeting);
+
+    String get greet =&gt; "Hello, $<mark>_</mark>greeting";
+}
+// another file
+var greeter = Greeter("world");
+            </code></pre>
+        </section>
+        <section data-transition="none">
+            <p>Dart</p>
+            <pre><code data-noescape data-trim style="font-size: 0.8em">
+class Greeter {
+    final String <mark>_</mark>greeting;
+
+    Greeter(this.<mark>_</mark>greeting);
+
+    String get greet =&gt; "Hello, $<mark>_</mark>greeting";
 }
 // another file
 var greeter = Greeter("world");
@@ -450,12 +523,9 @@ function f(foo, values) {
             <p class="fragment">
                 What if foo has "values"?
             </p>
-        </section>
-        <section>
-            The <b>with statement</b> extends the scope chain for a statement.
-        </section>
-        <section>
-            What about XMLHttpRequest?
+            <aside class="notes">
+                The <b>with statement</b> extends the scope chain for a statement.
+            </aside>
         </section>
         <section>
             Dart analyzer helps you (demo)
@@ -485,15 +555,6 @@ const divyArray = Array.from(nodelist)
         </section>
         <section>
             Dart (demo time)
-        </section>
-        <section>
-          <p>Array is also a strange thing</p>
-          <pre class="fragment"><code data-trim>
-          Array.prototype[1] = "ha";
-          var arr = [0, /* Hole */, 1]
-          arr[1]  // =&gt; "ha"
-          </code></pre>
-          <p class="fragment">But we have map, filter...</p>
         </section>
         <section data-transition="slide none">
             <p>Moment.js</p>
@@ -591,6 +652,27 @@ class HeroSearchComponent {
             </code></pre>
         </section>
         <section>
+            <pre><code data-trim>
+Future&lt;int&gt; sumStream(Stream&lt;int&gt; stream) async {
+  var sum = 0;
+  await for (var value in stream) {
+    sum += value;
+  }
+  return sum;
+}
+            </code></pre>
+        </section>
+        <section>
+            <p>Native syntax for creating streams</p>
+            <pre><code>
+Stream&lt;int&gt; countStream(int to) async* {
+  for (int i = 1; i &lt;= to; i++) {
+    yield i;
+  }
+}
+            </code></pre>
+        </section>
+        <section>
             Looks like Dart has it's own RxJS
         </section>
         <section>
@@ -636,6 +718,15 @@ class HeroSearchComponent {
 
 <span class="fragment">doSomethigWithAnimal(a);</span>
             </code></pre>
+        </section>
+        <section>
+          <p>Array is also a strange thing</p>
+          <pre class="fragment"><code data-trim>
+          Array.prototype[1] = "ha";
+          var arr = [0, /* Hole */, 1]
+          arr[1]  // =&gt; "ha"
+          </code></pre>
+          <p class="fragment">But we have map, filter...</p>
         </section>
         <section>
             <h2>Static types</h2>
