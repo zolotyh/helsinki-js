@@ -1,6 +1,4 @@
-class Animal {
-
-}
+class Animal {}
 
 class Cat extends Animal {
     drinkMilk(){}

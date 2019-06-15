@@ -47,9 +47,6 @@
             <p>
                 Aleksei Zolotykh
             </p>
-            <p class="fragment">
-                Just Alex
-            </p>
         </section>
         <section>
             <img src="img/saintp.jpg" alt="">
@@ -534,7 +531,15 @@ function f(foo, values) {
             </aside>
         </section>
         <section>
-            Dart analyzer helps you (demo)
+            Dart analyzer helps you
+            <pre class="fragment"><code data-trim>
+@Deprecated('use `hello2` instead')
+const hello = '1';
+
+void main(){
+    print(hello);
+}
+            </code></pre>
         </section>
         <section>
             <img src="img/deprecated.png" alt="">
@@ -738,7 +743,41 @@ Stream&lt;int&gt; countStream(int to) async* {
             <h2>Static types</h2>
         </section>
         <section>
-            demo time
+            <p>
+                Typescript
+            </p>
+            <pre><code>
+class Animal {}
+
+
+class Cat extends Animal {
+    drinkMilk(){}
+}
+
+const listOfAnimals = [];
+listOfAnimals.push(new Animal())
+
+const listOfCats: Cat[] = listOfAnimals;
+            </code></pre>
+        </section>
+        <section>
+            <p>
+                Dart
+            </p>
+            <pre><code data-trim>
+class Animal {}
+
+class Cat extends Animal {
+    drinkMilk(){}
+}
+
+void main(){
+    final listOfAnimals = [];
+    listOfAnimals.add(Animal());
+    final List&lt;Cat&gt; listOfCats = [];
+    listOfCats.add(Animal()); // static type error
+}
+            </code></pre>
         </section>
         <section>
             What is Flutter?
@@ -767,8 +806,9 @@ Stream&lt;int&gt; countStream(int to) async* {
         <section>
             <ul>
                 <li>We need more Dart developers</li>
-                <li>We need more tools</li>
-                <li>We need more libs</li>
+                <li class="fragment">We need more tools</li>
+                <li class="fragment">We need more libs</li>
+                <li class="fragment">Google product</li>
             </ul>
         </section>
         <section>
